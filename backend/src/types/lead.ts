@@ -19,7 +19,6 @@ export interface ExtractedLead {
   data_source?: string;
   possession_time?: string;
   description?: string;
-  [key: string]: string | number | undefined;
 }
 
 export interface SkippedRecord {
