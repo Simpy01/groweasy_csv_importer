@@ -13,6 +13,7 @@ An AI-powered CSV importer for extracting CRM-ready lead information from messy 
 ## Tech Stack
 
 ### Frontend
+
 - Next.js
 - React
 - Tailwind CSS
@@ -20,6 +21,7 @@ An AI-powered CSV importer for extracting CRM-ready lead information from messy 
 - React Dropzone
 
 ### Backend
+
 - Node.js
 - Express
 - TypeScript
