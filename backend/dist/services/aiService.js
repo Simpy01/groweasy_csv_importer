@@ -1,14 +1,8 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.extractLeadsFromRows = extractLeadsFromRows;
-const genai_1 = require("@google/genai");
-const dotenv_1 = __importDefault(require("dotenv"));
-dotenv_1.default.config();
+import { GoogleGenAI } from '@google/genai';
+import dotenv from 'dotenv';
+dotenv.config();
 const apiKey = process.env.GEMINI_API_KEY;
-const ai = apiKey ? new genai_1.GoogleGenAI({ apiKey }) : null;
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 const allowedStatuses = ['GOOD_LEAD_FOLLOW_UP', 'DID_NOT_CONNECT', 'BAD_LEAD', 'SALE_DONE'];
 const allowedSources = ['leads_on_demand', 'meridian_tower', 'eden_park', 'varah_swamy', 'sarjapur_plots'];
 function normalizeStatus(value) {
@@ -112,7 +106,7 @@ function validateLead(record) {
         crm_note: String(record.crm_note || '').trim(),
     };
 }
-async function extractLeadsFromRows(rows) {
+export async function extractLeadsFromRows(rows) {
     const importedRecords = [];
     const skippedRecords = [];
     for (const [index, row] of rows.entries()) {

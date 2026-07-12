@@ -1,10 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseCsvBuffer = parseCsvBuffer;
-const papaparse_1 = require("papaparse");
-function parseCsvBuffer(buffer) {
+import { parse } from 'papaparse';
+export function parseCsvBuffer(buffer) {
     const text = buffer.toString('utf8');
-    const result = (0, papaparse_1.parse)(text, {
+    const result = parse(text, {
         header: true,
         skipEmptyLines: true,
         transformHeader: (header) => header.trim(),

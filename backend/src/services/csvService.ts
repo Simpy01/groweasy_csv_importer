@@ -1,5 +1,5 @@
 import { parse } from 'papaparse';
-import type { ParsedCsvRow } from '../types/lead';
+import type { ParsedCsvRow } from '../types/lead.js';
 
 export function parseCsvBuffer(buffer: Buffer): ParsedCsvRow[] {
   const text = buffer.toString('utf8');

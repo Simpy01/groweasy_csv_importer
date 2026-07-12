@@ -1,6 +1,6 @@
 import { GoogleGenAI } from '@google/genai';
 import dotenv from 'dotenv';
-import type { ExtractedLead, ParsedCsvRow, SkippedRecord } from '../types/lead';
+import type { ExtractedLead, ParsedCsvRow, SkippedRecord } from '../types/lead.js';
 
 dotenv.config();
 

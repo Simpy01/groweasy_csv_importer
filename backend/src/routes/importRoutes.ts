@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from 'multer';
-import { importCsv } from '../controllers/importController';
+import { importCsv } from '../controllers/importController.js';
 
 const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() });

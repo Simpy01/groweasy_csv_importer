@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express';
-import { parseCsvBuffer } from '../services/csvService';
-import { extractLeadsFromRows } from '../services/aiService';
-import type { ImportResult } from '../types/lead';
+import { parseCsvBuffer } from '../services/csvService.js';
+import { extractLeadsFromRows } from '../services/aiService.js';
+import type { ImportResult } from '../types/lead.js';
 
 export async function importCsv(req: Request, res: Response) {
   try {
@@ -12,7 +12,7 @@ export async function importCsv(req: Request, res: Response) {
     const rows = parseCsvBuffer(req.file.buffer);
     const { importedRecords, skippedRecords } = await extractLeadsFromRows(rows);
 
-    const skipReasons = skippedRecords.reduce<Record<string, number>>((acc, item) => {
+    const skipReasons = skippedRecords.reduce<Record<string, number>>((acc: Record<string, number>, item: { reason: string }) => {
       acc[item.reason] = (acc[item.reason] || 0) + 1;
       return acc;
     }, {});
