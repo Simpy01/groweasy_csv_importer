@@ -115,3 +115,5 @@ node --test tests/normalize.test.mjs
 ## Summary
 
 This project demonstrates an AI-assisted CSV import workflow with a modern frontend, a robust backend API, and validation logic designed to reduce common data quality issues.
+##LINK-https://groweasy-csv-importer-simpy.vercel.app/(FRONTEND)
+BACKEND--https://groweasy-csv-importer-p76c.onrender.com
