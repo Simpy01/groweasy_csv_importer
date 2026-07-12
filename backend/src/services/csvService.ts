@@ -1,9 +1,9 @@
-import { parse } from 'papaparse';
+import Papa from 'papaparse';
 import type { ParsedCsvRow } from '../types/lead.js';
 
 export function parseCsvBuffer(buffer: Buffer): ParsedCsvRow[] {
   const text = buffer.toString('utf8');
-  const result = parse(text, {
+  const result = Papa.parse(text, {
     header: true,
     skipEmptyLines: true,
     transformHeader: (header: string) => header.trim(),
