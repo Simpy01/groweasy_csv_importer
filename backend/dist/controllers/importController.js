@@ -10,6 +10,10 @@ async function importCsv(req, res) {
         }
         const rows = (0, csvService_1.parseCsvBuffer)(req.file.buffer);
         const { importedRecords, skippedRecords } = await (0, aiService_1.extractLeadsFromRows)(rows);
+        const skipReasons = skippedRecords.reduce((acc, item) => {
+            acc[item.reason] = (acc[item.reason] || 0) + 1;
+            return acc;
+        }, {});
         const result = {
             success: true,
             totalRows: rows.length,
@@ -17,6 +21,7 @@ async function importCsv(req, res) {
             skippedCount: skippedRecords.length,
             importedRecords,
             skippedRecords,
+            skipReasons,
         };
         return res.json(result);
     }

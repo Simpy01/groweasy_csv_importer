@@ -35,4 +35,5 @@ export interface ImportResult {
   skippedCount: number;
   importedRecords: ExtractedLead[];
   skippedRecords: SkippedRecord[];
+  skipReasons: Record<string, number>;
 }

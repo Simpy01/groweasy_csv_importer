@@ -119,6 +119,21 @@ export default function Home() {
               </div>
             </div>
 
+            {Object.keys(importResult.skipReasons || {}).length > 0 && (
+              <div className="rounded-xl border bg-white p-4 shadow-sm">
+                <h3 className="mb-2 text-lg font-semibold">Skip Reasons</h3>
+                <ul className="space-y-1 text-sm text-slate-600">
+                  {Object.entries(importResult.skipReasons || {}).map(
+                    ([reason, count]) => (
+                      <li key={reason}>
+                        {reason}: {count}
+                      </li>
+                    ),
+                  )}
+                </ul>
+              </div>
+            )}
+
             <DataTable
               data={importResult.importedRecords}
               title="Parsed CRM Records"
